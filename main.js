@@ -5,15 +5,7 @@
 
 // Exercice 1.1 : Transforme la concaténation en interpolation de chaîne de caractères avec les backticks `
 function afficheAddresse(address) {
-  return (
-    "Votre adresse est : " +
-    address.street +
-    ", " +
-    address.city +
-    ", " +
-    address.country +
-    "."
-  );
+  return `Votre adresse est : ${address.street} , ${address.city}, ${address.country} .`;
 }
 
 console.log("Exercice 1.1");
@@ -27,9 +19,7 @@ console.log(
 
 // Exercice 1.2 : Utilise les chaînes multilignes avec les backticks ` pour afficher plus simplement le menu
 console.log("Exercice 1.2");
-console.log(
-  "Menu de la semaine :\n    - Pâte à tartine\n    - Hoagie\n    - Salade de pommes"
-);
+console.log(`Menu de la semaine :    - Pâte à tartine    - Hoagie    - Salade de pommes`);
 
 /**
  * Exercice 2
@@ -94,11 +84,7 @@ const secondCharacterName = roman.characters[0].name;
 const thirdCharacterJapaneseVoice = roman.characters[1].animeJapaneseVoice;
 
 console.log("Exercice 2.4");
-console.log(
-  mainCharacterName,
-  secondCharacterName,
-  thirdCharacterJapaneseVoice
-);
+console.log(mainCharacterName, secondCharacterName, thirdCharacterJapaneseVoice);
 
 // ------
 
@@ -304,10 +290,7 @@ function updateCartQuantity(productName, quantity) {
 }
 
 function computeTotal() {
-  return cart.reduce(
-    (total, cartLine) => total + cartLine.quantity * cartLine.price,
-    0
-  );
+  return cart.reduce((total, cartLine) => total + cartLine.quantity * cartLine.price, 0);
 }
 
 function displayAmount(amount) {
@@ -342,17 +325,13 @@ console.log(displayAmount(computeTotal()));
 // Exercice 8 : Transforme les opérations asynchrone avec la syntaxe async/await
 
 function loadFruits() {
-  return fetch("http://127.0.0.1:5500/data/fruits.json").then((response) =>
-    response.json()
-  );
+  return fetch("http://127.0.0.1:5500/data/fruits.json").then((response) => response.json());
 }
 
 function program() {
   loadFruits()
     .then((fruits) => console.log(fruits))
-    .catch((error) =>
-      console.log("Problème lors du chargement des fruits", error)
-    );
+    .catch((error) => console.log("Problème lors du chargement des fruits", error));
 }
 
 console.log("Exercice 8");
